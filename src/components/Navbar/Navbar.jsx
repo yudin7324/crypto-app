@@ -24,7 +24,9 @@ const Navbar = () => {
     window.addEventListener('resize', handleResize);
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
   useEffect(() => {
@@ -36,19 +38,19 @@ const Navbar = () => {
   }, [screenSize]);
 
   useEffect(() => {
-    let handler = (event) => {
-      if (!menuRef.current?.contains(event.target)) {
-        setActiveMenu(false);
+      let handler = (event) => {
+        if (!menuRef.current?.contains(event.target) && screenSize < 768) {
+          setActiveMenu(false);
+        }
       }
-    }
-    document.addEventListener('mousedown', handler)
-    document.addEventListener('touchstart', handler)
-
-    return () => {
-      document.removeEventListener('mousedown', handler)
-      document.removeEventListener('touchstart', handler)
-    } 
-  }, []);
+      document.addEventListener('mousedown', handler)
+      document.addEventListener('touchstart', handler)
+  
+      return () => {
+        document.removeEventListener('mousedown', handler)
+        document.removeEventListener('touchstart', handler)
+      } 
+  }, [screenSize]);
 
   return (
     <div className="nav-container">
