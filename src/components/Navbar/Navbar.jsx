@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button, Menu, Typography, Avatar } from 'antd';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons';
@@ -9,7 +9,7 @@ const { Title } = Typography;
 const { Item } = Menu;
 
 const Navbar = () => {
-
+  const menuRef = useRef();
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState(null);
 
@@ -25,7 +25,7 @@ const Navbar = () => {
     handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [])
+  }, []);
 
   useEffect(() => {
     if(screenSize < 768) {
@@ -33,7 +33,22 @@ const Navbar = () => {
     } else {
       setActiveMenu(true);
     }
-  }, [screenSize])
+  }, [screenSize]);
+
+  useEffect(() => {
+    let handler = (event) => {
+      if (!menuRef.current?.contains(event.target)) {
+        setActiveMenu(false);
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    document.addEventListener('touchstart', handler)
+
+    return () => {
+      document.removeEventListener('mousedown', handler)
+      document.removeEventListener('touchstart', handler)
+    } 
+  }, []);
 
   return (
     <div className="nav-container">
@@ -47,7 +62,8 @@ const Navbar = () => {
         </Button>
       </div>
       {activeMenu && (
-        <Menu selectedKeys={selectedRoute()} theme="dark" className="menu-list">
+        <div ref={menuRef}>
+          <Menu selectedKeys={selectedRoute()} theme="dark" className="menu-list" >
           <Item key={"/"} icon={<HomeOutlined/>}>
             <NavLink to="/">Главная страница</NavLink>
           </Item>
@@ -61,6 +77,7 @@ const Navbar = () => {
             <NavLink to="/news">Новости</NavLink>
           </Item>
         </Menu>
+        </div>
       )} 
     </div>
   )

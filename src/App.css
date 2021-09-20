@@ -41,7 +41,6 @@
   
   .nav-container {
     width: 100%;
-    height: 8vh;
   }
 
   .site-layout {
@@ -49,9 +48,6 @@
     margin-top: 80px;
   }
 
-  .menu-control-container {
-    display: block !important;
-  }
 }
 
 @media (max-width: 575.98px){
