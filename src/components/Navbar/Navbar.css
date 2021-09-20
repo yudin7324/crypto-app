@@ -1,0 +1,29 @@
+.nav-container{
+  height: 100vh;
+}
+
+.logo-container{
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  background-color: #001529;
+}
+
+.logo-link {
+  color: #fff !important;
+}
+
+.menu-control-container{
+  display: none !important;
+  position: absolute !important;
+  right: 10px !important;
+  background-color: #fff !important;
+  border: none !important;
+}
+
+.menu-list {
+  background: #001529 !important;
+  z-index: 9999 !important;
+}

@@ -1,0 +1,9 @@
+.exchange-image {
+  margin: 0px 10px !important;
+}
+
+@media screen and (max-width: 575.98px){
+  .exchange-image{
+   display: none !important;
+  }
+}

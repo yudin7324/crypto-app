@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Row, Typography } from 'antd';
 import { Line } from 'react-chartjs-2';
+import './LineChart.css';
 
 const { Title } = Typography
 
@@ -15,14 +16,14 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   }
 
   const data = {
-    labels: coinTimestamp,
+    labels: coinTimestamp.slice(1, 100),
     datasets: [
       {
-        label: 'Price in USD',
+        label: 'Цена в USD',
         data: coinPrice,
         fill: false,
-        backgroundColor: '#0071bd',
-        borderColor: '#0071bd'
+        backgroundColor: '#1192B7',
+        borderColor: '#1192B7'
       }
     ]
   }
@@ -40,20 +41,20 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   }
 
   return (
-    <>
+    <div className="chart">
       <Row className="chart-header">
-        <Title level={2}>{coinName} Price Chart</Title>
+        <Title level={2}>График цены: {coinName}</Title>
         <Col className="price-container">
           <Title level={5} className="price-change">
             {coinHistory?.data?.change}%
           </Title>
           <Title level={5} className="current-price">
-            Current {coinName} Price: $ {currentPrice}
+            Текущая цена {coinName}: $ {currentPrice}
           </Title>
         </Col>
       </Row> 
       <Line data={data} options={options}/>
-    </>
+    </div>
   )
 }
 

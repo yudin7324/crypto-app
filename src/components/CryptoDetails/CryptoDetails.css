@@ -1,0 +1,154 @@
+.coin-heading-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid #1192B7;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.coin-heading-container .coin-name{
+  font-weight: 900;
+}
+
+.coin-heading-container p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.stats-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+}
+
+.stats-container h2 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-top: 20px;
+  color: #1192B7 !important;
+}
+
+.coin-details-heading {
+  font-weight: 700 !important;
+  margin-top: 20px !important;
+}
+
+.coin-stats {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #1192B7;
+  font-size: 1rem;
+  opacity: 0.9;
+  padding: 20px;
+  min-width: 320px;
+}
+
+.coin-stats-name {
+  display: flex;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+.stats{
+  font-weight: 800;
+}
+
+.coin-value-statistics-heading p{
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.coin-desc-link{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  column-gap: 40px;
+}
+
+.coin-desc-link h2 {
+  font-weight: 700;
+}
+
+.coin-desc-link p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.coin-desc-link a {
+  color: #1192B7;
+}
+
+.coin-desc-link h3 {
+  font-weight: 700;
+}
+
+.coin-desc {
+  flex: 0.5;
+}
+
+.coin-links {
+  flex: 0.5;
+}
+
+.coin-link{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #1192B7;
+  padding: 20px;
+}
+
+.link-name {
+  text-transform: capitalize;
+}
+
+.coin-link a {
+  color: #1192B7;
+  font-weight: 500;
+}
+
+@media (max-width: 1199.98px){
+ 
+}
+
+@media (max-width: 991.98px) {
+  .stats-container {
+    flex-direction: column;
+  }
+  .coin-desc-link{
+    column-gap: 40px;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767.98px){
+ 
+}
+
+
+@media (max-width: 575.98px){
+  .coin-stats {
+    min-width: 100%;
+  }
+  .other-stats-info {
+    width: 100%;
+  }
+  .coin-value-statistics {
+    width: 100%;
+  }
+  .select-timeperiod {
+    display: none;
+  }
+}
+
+
+
+
+

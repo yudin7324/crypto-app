@@ -2,9 +2,9 @@ import React from 'react';
 import millify from 'millify';
 import { Collapse, Row, Col, Typography, Avatar } from 'antd';
 import HTMLReactParser from 'html-react-parser';
-
-import { useGetExchangesQuery } from '../services/cryptoApi';
-import Loader from './Loader';
+import { useGetExchangesQuery } from '../../services/cryptoApi';
+import Loader from '../Loader/Loader';
+import './Exchanges.css';
 
 const { Text } = Typography;
 const { Panel } = Collapse;
@@ -18,10 +18,10 @@ const Exchanges = () => {
   return (
     <>
       <Row>
-        <Col span={6}>Exchanges</Col>
-        <Col span={6}>24h Trade Volume</Col>
-        <Col span={6}>Markets</Col>
-        <Col span={6}>Change</Col>
+        <Col xs={13} sm={15} md={12} lg={12}>Биржы</Col>
+        <Col xs={5} sm={3} md={3} lg={4}>24ч.</Col>
+        <Col xs={3} sm={3} md={3} lg={4}>Рынки</Col>
+        <Col xs={2} sm={3} md={3} lg={4}>Объемы(%)</Col>
       </Row>
       <Row>
         {exchangesList.map((exchange) => (
@@ -32,14 +32,14 @@ const Exchanges = () => {
                 showArrow={false}
                 header={(
                   <Row key={exchange.id}>
-                    <Col span={6}>
+                    <Col xs={13} sm={15} md={12} lg={12}>
                       <Text><strong>{exchange.rank}.</strong></Text>
                       <Avatar className="exchange-image" src={exchange.iconUrl} />
                       <Text><strong>{exchange.name}</strong></Text>
                     </Col>
-                    <Col span={6}>${millify(exchange.volume)}</Col>
-                    <Col span={6}>{millify(exchange.numberOfMarkets)}</Col>
-                    <Col span={6}>{millify(exchange.marketShare)}%</Col>
+                    <Col xs={5} sm={3} md={3} lg={4}>${millify(exchange.volume)}</Col>
+                    <Col xs={3} sm={3} md={3} lg={4}>{millify(exchange.numberOfMarkets)}</Col>
+                    <Col xs={2} sm={3} md={3} lg={4}>{millify(exchange.marketShare)}%</Col>
                   </Row>
                   )}
               >

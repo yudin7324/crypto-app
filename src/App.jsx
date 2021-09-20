@@ -1,52 +1,43 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import { Layout, Typography, Space } from 'antd';
+import { Switch, Route } from 'react-router-dom';
+import { Layout } from 'antd';
 
 import { Navbar, Homepage, Exchanges, Cryptocurrencies, CryptoDetails, News } from './components';
 import './App.css';
 
+const { Content } = Layout;
+
 const App = () => {
+
   return (
-    <div className="app"> 
-      <div className="navbar">
+    <Layout>
+      <div className="sidebar">
         <Navbar/>
       </div>
-      <div className="main">
-        <Layout>
-          <div className="routes">
+      <Layout className="site-layout">
+        <Content >
+          <div className="content">
             <Switch>
               <Route exact path="/">
-                <Homepage />
+                <Homepage/>
               </Route>
               <Route exact path="/exchanges">
-                <Exchanges />
+                <Exchanges/>
               </Route>
               <Route exact path="/cryptocurrencies">
-                <Cryptocurrencies />
+                <Cryptocurrencies/>
               </Route>
               <Route exact path="/crypto/:coinId">
-                <CryptoDetails />
+                <CryptoDetails/>
               </Route>
               <Route exact path="/news">
-                <News />
+                <News/>
               </Route>
             </Switch>
           </div>
-        </Layout>
-      
-        <div className="footer" level={5}>
-          <Typography.Title style={{color: 'white', textAlign: 'center'}}>
-              CryptoRoad <br/>
-              All right reserverd
-          </Typography.Title>
-          <Space>
-            <Link to="/">Home</Link>
-            <Link to="/exchanges">Exchanges</Link>
-            <Link to="/news">News</Link>
-          </Space>
-        </div>
-      </div>
-    </div>
+        </Content>
+      </Layout>
+    </Layout>
   )
 }
 

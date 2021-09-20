@@ -1,0 +1,9 @@
+.search-crypto {
+  margin: 20px auto 30px auto;
+  width: 250px;
+}
+
+.crypto-card .crypto-image{
+  height:35px;
+  width: auto;
+}

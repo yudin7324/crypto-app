@@ -1,0 +1,29 @@
+.home-heading-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.home-title {
+  text-align: center;
+}
+
+.show-more{
+  margin-top: 0px !important;
+}
+
+@media screen and (max-width: 991.98px) {
+  .home-title {
+    font-size: 22px !important;
+  }
+  .show-more {
+    font-size: 18px !important;
+  }
+}
+
+@media screen and (max-width: 575.98px){
+  .home-heading-container {
+    flex-direction: column;
+  }
+}
