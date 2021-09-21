@@ -43,7 +43,7 @@ const Homepage = () => {
         </Col>
       </Row>
       <div className="home-heading-container">
-        <Title level={2} className="home-title">Топ 10 криптовалют в мире</Title>
+        <Title level={2} className="home-title">Топ 10 криптовалют</Title>
         <Title level={3} className="show-more">
           <Link style={{ color: '#1192B7' }} to="/cryptocurrencies">Показать больше</Link>
         </Title>
