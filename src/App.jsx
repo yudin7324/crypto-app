@@ -8,7 +8,6 @@ import './App.css';
 const { Content } = Layout;
 
 const App = () => {
-
   return (
     <Layout>
       <div className="sidebar">
